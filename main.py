@@ -32,9 +32,9 @@ sig_out_b = np.fft.irfft(sig_fr_b)
 
 #c
 N = sig_audio.shape[0]
-sig_fr_c1 = sig_abs * np.exp(j * (phase + N/4))
-sig_fr_c2 = sig_abs * np.exp(j * (phase + N/2))
-sig_fr_c3 = sig_abs * np.exp(j * (phase - N/4))
+sig_fr_c1 = sig_abs * np.exp(j * phase) * np.exp(j * N/4)
+sig_fr_c2 = sig_abs * np.exp(j * phase) * np.exp(j * N/2)
+sig_fr_c3 = sig_abs * np.exp(j * phase - N/4) * np.exp(-1 * j * N/4)
 sig_out_c1 = np.fft.irfft(sig_fr_c1)
 sig_out_c2 = np.fft.irfft(sig_fr_c2)
 sig_out_c3 = np.fft.irfft(sig_fr_c3)
@@ -59,9 +59,9 @@ sig_audio2 = sig_audio2[0 : len(sig_audio)]
 sig_fr2 = np.fft.rfft(sig_audio2)
 phase2 = np.angle(sig_fr2)
 sig_abs2 = np.abs(sig_fr2)
-sig_fr_f1 = sig_abs * np.exp(j * phase2)
+sig_fr_f1 = sig_abs2 * np.exp(j * phase2)
 sig_out_f1 = np.fft.irfft(sig_fr_f1)
-sig_fr_f2 = sig_abs2 * np.exp(j * phase)
+sig_fr_f2 = sig_abs * np.exp(j * phase)
 sig_out_f2 = np.fft.irfft(sig_fr_f2)
 
 
