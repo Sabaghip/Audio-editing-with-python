@@ -1,3 +1,5 @@
+change the PATH in .py to the current path.
+
 put 2 .wav files in /Voices and run python file.
 then you will see new files in /Voices.
 a --> negate the phase of fourier transform.
